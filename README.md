@@ -2,7 +2,7 @@
 -------here goes the description of the pipeline-------
        where the data was downloaded, stored, cleaning process, any trnasformation!
 
-## 1. Data Source
+## 1.Data Source
 The Failure-Mileage Distribution dataset build from NHTSA (Nattional Highway Traffic Safety Association) owner complaint and recall record.
 Dataset consist of data NHTSA reporting auto failure based on year, model, make, cateoetegoy and provideds odometer milage at failure.
 Note that not all failure report reports the failure milage as it is option to report the odometer milage base on reporter preference. 

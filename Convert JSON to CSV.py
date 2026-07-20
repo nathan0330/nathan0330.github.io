@@ -53,15 +53,15 @@ def json_to_csv(data):
 #-------------------------------------------------------------#
 
 # store azure connection string.
-connection_string = "replce with Azure_connection_key_"
+connection_string = "azure_connection_string_here
 
 ## upload csv file to azure storage ##
 
-def upload_csv_to_azure(csv_data):
+def upload_csv_to_azure(csv_data, data):
 
     # Set container name (where the file is being dropped) & set file name
     container_name = "failure-mileage-distribution-project"
-    blob_name = f"CSV_Files/failure-mileage-distribution-{datetime.now():%Y-%m-%d}.csv"
+    blob_name = f"CSV_Files/failure-mileage-distribution-{data['generated']}.csv"
 
     #connect to the whole Azure storage account (like logging into the drive)
     blob_service_client = BlobServiceClient.from_connection_string(connection_string)
@@ -75,8 +75,8 @@ def upload_csv_to_azure(csv_data):
     print(f"Successfully uploaded {blob_name} to {container_name}")
 
 #-------------------------------------------------------------#
-failure_file = read_json(path)
-csv = json_to_csv(failure_file)
-upload_csv_to_azure(csv)
+auto_failure_weekly_json_file = read_json(path)
+auto_failure_weekly_csv_file = json_to_csv(auto_failure_weekly_json_file)
+upload_csv_to_azure(auto_failure_weekly_csv_file, auto_failure_weekly_json_file)
 
 

@@ -27,8 +27,6 @@ This means that there will be a difference between the total complaint count vs 
 
 
 
-download JSON file from website convert to csv file
-
-Use the Convert JSON to CSV.py code file to convert the JSON file to a CSV.
+## 2. Convert JSON file to CSV & Upload to ADLS 
 
 

@@ -34,13 +34,19 @@ Once the weekly JSON export is dropped into the source folder, the pipeline pick
 
 ### 2.1 Reading the Latest JSON File
 
-pythondef read_json(file_path):
+```python
+def read_json(file_path):
+    # Find all JSON files in the folder.
     files = glob.glob(os.path.join(file_path, "*.json"))
+
+    # Pick the most recently modified file.
     newest_file = max(files, key=os.path.getmtime)
+
+    # turns the file into a python object(dict or a list)
     with open(newest_file) as f:
         data = json.load(f)
     return data
-
+```
 Rather than hardcoding a specific filename, this function scans the source folder for all .json files and automatically selects the most recently modified one. This allows new weekly exports to be dropped into the folder without requiring any changes to the script. The file is then parsed from raw JSON text into a Python dictionary, ready for transformation.
 
 ### 2.2 Converting JSON to CSV
